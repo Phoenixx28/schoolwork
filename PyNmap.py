@@ -12,15 +12,12 @@ import pickle
 import json
 import subprocess
 
-os.chdir('C:\\Users\Teroo')
 
-cwd = os.getcwd()
-print(cwd)
 # SET VARIABLES
 my_dir = 'C:\\Users\Teroo\Downloads\LOGIN ID'
-port_list = ['192.168.1.1:80', '192.168.1.1:23', '192.168.1.1:22']
-nmap_path = 'C:\\Program files (x86)\\Nmap'
-nmap_network = '192.168.1.148'
+port_list = ['192.168.1.148:80', '192.168.1.148:23', '192.168.1.148:22']
+nmap_path = 'C:\\Program files (x86)\\Nmap\\nmap.exe'
+nmap_network = '192.168.1.0/24'
 
 def create_directory():   
     if(os.path.isdir(my_dir)) == False:
@@ -74,9 +71,10 @@ def run_nmap():
 date_str = date.today().strftime("%m%d%y")
 my_json = 'C:\\Users\Teroo\Downloads\LOGIN ID\%s.json' % date_str
 my_pickle = 'C:\\Users\Teroo\Downloads\LOGIN ID\%s.pickle' % date_str
-    
 create_directory()
 create_date_string()
 write_files()
 read_files()
+run_nmap()
+
 
